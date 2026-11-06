@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: ayatana-appindicator3-0.1
+Description: Ayatana Application Indicators
+Version: 0.5.93
+Libs: -L${libdir} -layatana-appindicator3
+Cflags: -I${includedir}/libayatana-appindicator3-0.1

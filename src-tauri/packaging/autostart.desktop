@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=DevMonitor
+Comment=DevMonitor — start after login so monitoring continues across restarts
+Exec=/usr/bin/devmonitor
+Icon=devmonitor
+Terminal=false
+Categories=System;Monitor;
+StartupNotify=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=2
+X-KDE-autostart-after=panel
+Hidden=false
+NoDisplay=false

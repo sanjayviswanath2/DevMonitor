@@ -1,0 +1,223 @@
+/*
+  Desktop chrome tokens.
+  Change --primary only for brand; series/accents derive from it.
+*/
+
+:root,
+[data-theme="light"] {
+  --primary: #152a4a;
+  --primary-hover: color-mix(in srgb, var(--primary) 78%, #000000);
+  --primary-soft: color-mix(in srgb, var(--primary) 12%, transparent);
+  --primary-softer: color-mix(in srgb, var(--primary) 8%, transparent);
+  --primary-fill: color-mix(in srgb, var(--primary) 18%, transparent);
+
+  --accent: var(--primary);
+  --accent-hover: var(--primary-hover);
+  --accent-soft: var(--primary-soft);
+  --bg-active: var(--primary-soft);
+  --bg-selected: var(--primary-softer);
+  --chart-stroke: var(--primary);
+  --chart-fill: var(--primary-fill);
+
+  --series-cpu: color-mix(in srgb, var(--primary) 22%, #2470b5);
+  --series-cpu-soft: color-mix(in srgb, var(--series-cpu) 14%, transparent);
+  --series-memory: color-mix(in srgb, var(--primary) 12%, #c27a28);
+  --series-memory-soft: color-mix(in srgb, var(--series-memory) 14%, transparent);
+  --series-process: color-mix(in srgb, var(--primary) 12%, #2a8a58);
+  --series-process-soft: color-mix(in srgb, var(--series-process) 12%, transparent);
+  --series-port: color-mix(in srgb, var(--primary) 18%, #4a5fa8);
+  --series-port-soft: color-mix(in srgb, var(--series-port) 12%, transparent);
+
+  --bg: #f3f5f8;
+  --bg-elevated: #ffffff;
+  --bg-sidebar: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.045);
+  --border: color-mix(in srgb, #8a867e 28%, transparent);
+  --border-strong: color-mix(in srgb, #6f6b64 42%, transparent);
+  /* WCAG 1.4.11: solid edge, ≥3:1 against page and card backgrounds */
+  --input-border: #6f6b64;
+  --text: #1c1b19;
+  --text-secondary: #4a4844;
+  --text-muted: #6a6760;
+
+  --success: #2f6b4f;
+  --success-soft: rgba(47, 107, 79, 0.12);
+  --warning: #a67c2a;
+  --warning-soft: rgba(166, 124, 42, 0.12);
+  --danger: #b83d3d;
+  --danger-soft: rgba(184, 61, 61, 0.1);
+
+  --usage-low: #2f6b4f;
+  --usage-mid: #2470b5;
+  --usage-warn: #a67c2a;
+  --usage-hot: #b83d3d;
+
+  --activity-active: #4a8f6a;
+  --activity-available: #5a87b8;
+  --activity-idle: #c49a4a;
+  --activity-locked: #8b7aab;
+  /* Keep these three clearly distinct — not neighboring grays */
+  --activity-suspended: #6b8fad;
+  --activity-powered: #5c5a56;
+  --activity-unknown: #d9d4c8;
+
+  /* Distinct from white rows — readable navy wash, not a 10% tint */
+  --table-header-bg: #d8e0ec;
+  --table-header-fg: #152a4a;
+  --table-subheader-bg: #e8edf4;
+  --table-subheader-fg: #3a4a62;
+
+  --meter-track: rgba(0, 0, 0, 0.07);
+  --chart-grid: rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.04);
+  --shadow-md: 0 8px 24px rgba(28, 27, 25, 0.08);
+  --overlay: rgba(28, 27, 25, 0.38);
+  --sidebar-width: 216px;
+  --header-height: 56px;
+  --content-pad: 24px;
+  --inspector-width: 260px;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --font: "Source Sans 3", "Ubuntu", "Cantarell", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", "Ubuntu Mono", ui-monospace, monospace;
+  --ease: ease;
+  --surface-glow: none;
+  --control-height: 34px;
+  --control-height-sm: 30px;
+  --on-primary: #ffffff;
+  --row-height: 32px;
+}
+
+[data-theme="dark"] {
+  --primary: #8fb4e0;
+  --primary-hover: color-mix(in srgb, var(--primary) 78%, #ffffff);
+  --primary-soft: color-mix(in srgb, var(--primary) 16%, transparent);
+  --primary-softer: color-mix(in srgb, var(--primary) 10%, transparent);
+  --primary-fill: color-mix(in srgb, var(--primary) 20%, transparent);
+
+  --accent: var(--primary);
+  --accent-hover: var(--primary-hover);
+  --accent-soft: var(--primary-soft);
+  --bg-active: var(--primary-soft);
+  --bg-selected: var(--primary-softer);
+  --chart-stroke: var(--primary);
+  --chart-fill: var(--primary-fill);
+
+  --series-cpu: color-mix(in srgb, var(--primary) 40%, #5aa0e0);
+  --series-cpu-soft: color-mix(in srgb, var(--series-cpu) 18%, transparent);
+  --series-memory: color-mix(in srgb, var(--primary) 18%, #e0a45a);
+  --series-memory-soft: color-mix(in srgb, var(--series-memory) 16%, transparent);
+  --series-process: color-mix(in srgb, var(--primary) 18%, #5ecf98);
+  --series-process-soft: color-mix(in srgb, var(--series-process) 14%, transparent);
+  --series-port: color-mix(in srgb, var(--primary) 30%, #8b9ae0);
+  --series-port-soft: color-mix(in srgb, var(--series-port) 14%, transparent);
+
+  --bg: #2a2927;
+  --bg-elevated: #353431;
+  --bg-sidebar: #232220;
+  --bg-hover: rgba(255, 255, 255, 0.055);
+  --border: color-mix(in srgb, #ffffff 10%, transparent);
+  --border-strong: color-mix(in srgb, #ffffff 16%, transparent);
+  --input-border: #c4c0b8;
+  --text: #f2f0ec;
+  --text-secondary: #c4c0b8;
+  --text-muted: #9c978e;
+
+  --success: #5f9e7c;
+  --success-soft: rgba(95, 158, 124, 0.14);
+  --warning: #d4b05a;
+  --warning-soft: rgba(212, 176, 90, 0.14);
+  --danger: #d47474;
+  --danger-soft: rgba(212, 116, 116, 0.14);
+
+  --usage-low: #5ecf98;
+  --usage-mid: #5aa0e0;
+  --usage-warn: #d4b05a;
+  --usage-hot: #d47474;
+
+  --activity-active: #6bb891;
+  --activity-available: #6a9fd0;
+  --activity-idle: #d4b05a;
+  --activity-locked: #a898c8;
+  --activity-suspended: #7aa0bd;
+  --activity-powered: #6e6a64;
+  --activity-unknown: #4a4742;
+
+  --table-header-bg: #3f4a5c;
+  --table-header-fg: #e8eef8;
+  --table-subheader-bg: #353c4a;
+  --table-subheader-fg: #b8c4d6;
+
+  --meter-track: rgba(255, 255, 255, 0.1);
+  --chart-grid: rgba(255, 255, 255, 0.06);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.35);
+  --overlay: rgba(0, 0, 0, 0.55);
+  --surface-glow: none;
+  --on-primary: #121314;
+  --radius: 14px;
+  --radius-sm: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --primary: #8fb4e0;
+    --primary-hover: color-mix(in srgb, var(--primary) 78%, #ffffff);
+    --primary-soft: color-mix(in srgb, var(--primary) 16%, transparent);
+    --primary-softer: color-mix(in srgb, var(--primary) 10%, transparent);
+    --primary-fill: color-mix(in srgb, var(--primary) 20%, transparent);
+    --accent: var(--primary);
+    --accent-hover: var(--primary-hover);
+    --accent-soft: var(--primary-soft);
+    --bg-active: var(--primary-soft);
+    --bg-selected: var(--primary-softer);
+    --chart-stroke: var(--primary);
+    --chart-fill: var(--primary-fill);
+    --series-cpu: color-mix(in srgb, var(--primary) 40%, #5aa0e0);
+    --series-cpu-soft: color-mix(in srgb, var(--series-cpu) 18%, transparent);
+    --series-memory: color-mix(in srgb, var(--primary) 18%, #e0a45a);
+    --series-memory-soft: color-mix(in srgb, var(--series-memory) 16%, transparent);
+    --series-process: color-mix(in srgb, var(--primary) 18%, #5ecf98);
+    --series-process-soft: color-mix(in srgb, var(--series-process) 14%, transparent);
+    --series-port: color-mix(in srgb, var(--primary) 30%, #8b9ae0);
+    --series-port-soft: color-mix(in srgb, var(--series-port) 14%, transparent);
+    --bg: #2a2927;
+    --bg-elevated: #353431;
+    --bg-sidebar: #232220;
+    --bg-hover: rgba(255, 255, 255, 0.055);
+    --border: color-mix(in srgb, #ffffff 10%, transparent);
+    --border-strong: color-mix(in srgb, #ffffff 16%, transparent);
+    --input-border: #c4c0b8;
+    --text: #f2f0ec;
+    --text-secondary: #c4c0b8;
+    --text-muted: #9c978e;
+    --success: #5f9e7c;
+    --success-soft: rgba(95, 158, 124, 0.14);
+    --warning: #d4b05a;
+    --warning-soft: rgba(212, 176, 90, 0.14);
+    --danger: #d47474;
+    --danger-soft: rgba(212, 116, 116, 0.14);
+    --usage-low: #5ecf98;
+    --usage-mid: #5aa0e0;
+    --usage-warn: #d4b05a;
+    --usage-hot: #d47474;
+    --activity-active: #6bb891;
+    --activity-available: #6a9fd0;
+    --activity-idle: #d4b05a;
+    --activity-locked: #a898c8;
+    --activity-suspended: #7aa0bd;
+    --activity-powered: #6e6a64;
+    --activity-unknown: #4a4742;
+    --table-header-bg: #3f4a5c;
+    --table-header-fg: #e8eef8;
+    --table-subheader-bg: #353c4a;
+    --table-subheader-fg: #b8c4d6;
+    --meter-track: rgba(255, 255, 255, 0.1);
+    --chart-grid: rgba(255, 255, 255, 0.06);
+    --shadow-sm: none;
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.35);
+    --overlay: rgba(0, 0, 0, 0.55);
+    --surface-glow: none;
+    --on-primary: #121314;
+  }
+}

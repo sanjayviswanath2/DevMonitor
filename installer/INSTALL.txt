@@ -1,0 +1,27 @@
+DevMonitor installer
+====================
+
+File: DevMonitor_0.1.0_amd64.deb
+
+Install (Ubuntu / Debian):
+  sudo apt install -y ./DevMonitor_0.1.0_amd64.deb
+
+  # or:
+  sudo dpkg -i ./DevMonitor_0.1.0_amd64.deb
+  sudo apt-get install -f -y
+
+After install:
+  • App is available as "DevMonitor" in your app menu
+  • It starts automatically when you log in after reboot / power off-on
+  • Closing the window keeps it running in the system tray (background)
+  • Tray menu: Open DevMonitor / Quit DevMonitor
+  • Autostart entry: /etc/xdg/autostart/DevMonitor.desktop
+
+Launch now:
+  devmonitor
+
+Disable autostart (optional):
+  sudo rm -f /etc/xdg/autostart/DevMonitor.desktop
+
+Uninstall:
+  sudo apt remove -y dev-monitor

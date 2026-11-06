@@ -1,0 +1,61 @@
+name: devmonitor
+base: core24
+version: "0.1.0"
+summary: Linux developer system monitor and environment doctor
+description: |
+  DevMonitor is a lightweight desktop app for Linux developers.
+
+  It watches CPU, memory, ports, and developer activity; helps fix common
+  Node/Git/Docker issues; and keeps running in the system tray when you
+  close the window. After install it can start automatically on login so
+  monitoring continues across restarts and power cycles.
+
+  Features:
+    - Live CPU / memory / process / port monitoring
+    - Activity tracker (focus, idle, lock, boot, sleep)
+    - Node, Git, Docker, and toolchain doctor with one-click fixes
+    - Close to tray — keeps monitoring in the background
+
+  Classic confinement is required so DevMonitor can observe system
+  processes, ports, and journals like a normal desktop system tool.
+
+grade: stable
+confinement: classic
+license: MIT
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+
+apps:
+  devmonitor:
+    command: bin/devmonitor
+    desktop: usr/share/applications/devmonitor.desktop
+    common-id: com.devmonitor.desktop
+    environment:
+      LD_LIBRARY_PATH: $SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/webkit2gtk-4.1${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
+parts:
+  # Pre-built Tauri release binary. scripts/publish-snap.sh prepares snap/local/payload.
+  devmonitor:
+    plugin: dump
+    source: snap/local/payload
+    source-type: local
+    organize:
+      devmonitor: bin/devmonitor
+      "devmonitor.desktop": usr/share/applications/devmonitor.desktop
+      "icons/32x32.png": usr/share/icons/hicolor/32x32/apps/devmonitor.png
+      "icons/128x128.png": usr/share/icons/hicolor/128x128/apps/devmonitor.png
+      "metainfo.xml": usr/share/metainfo/com.devmonitor.desktop.metainfo.xml
+    stage-packages:
+      - libwebkit2gtk-4.1-0
+      - libjavascriptcoregtk-4.1-0
+      - libgtk-3-0t64
+      - libayatana-appindicator3-1
+      - libcanberra-gtk3-module
+      - libglu1-mesa
+
+layout:
+  /usr/lib/x86_64-linux-gnu/webkit2gtk-4.1:
+    bind: $SNAP/usr/lib/x86_64-linux-gnu/webkit2gtk-4.1

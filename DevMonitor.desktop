@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=DevMonitor
+Comment=Linux developer system monitor
+Exec=/home/sanjay.v@TA.COM/DevMonitor/DevMonitor
+Path=/home/sanjay.v@TA.COM/DevMonitor
+Icon=/home/sanjay.v@TA.COM/DevMonitor/src-tauri/icons/128x128.png
+Terminal=false
+Categories=Utility;Development;System;
+StartupNotify=true

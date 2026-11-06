@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.devmonitor.desktop</id>
+  <name>DevMonitor</name>
+  <summary>Linux developer system monitor and environment doctor</summary>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <developer_name>DevMonitor</developer_name>
+  <description>
+    <p>
+      DevMonitor watches CPU, memory, ports, and developer activity on Linux.
+      It includes Node/Git/Docker doctor tools, runs in the system tray when
+      closed, and can start automatically after login.
+    </p>
+  </description>
+  <launchable type="desktop-id">devmonitor.desktop</launchable>
+  <url type="homepage">https://github.com/devmonitor/devmonitor</url>
+  <categories>
+    <category>System</category>
+    <category>Monitor</category>
+    <category>Development</category>
+  </categories>
+  <provides>
+    <binary>devmonitor</binary>
+  </provides>
+  <releases>
+    <release version="0.1.0" date="2026-10-12" />
+  </releases>
+  <content_rating type="oars-1.1" />
+</component>

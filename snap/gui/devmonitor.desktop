@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=DevMonitor
+GenericName=System Monitor
+Comment=Linux developer system monitor and environment doctor
+Exec=devmonitor
+Icon=${SNAP}/meta/gui/devmonitor.png
+Terminal=false
+Categories=System;Monitor;Development;
+StartupNotify=false
+StartupWMClass=devmonitor
+Keywords=monitor;cpu;memory;ports;developer;doctor;
+X-GNOME-UsesNotifications=true

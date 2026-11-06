@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# DevMonitor launcher — runs the built release binary
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+BIN="$ROOT/src-tauri/target/release/devmonitor"
+
+if [[ -f "$HOME/.cargo/env" ]]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.cargo/env"
+fi
+
+if [[ ! -x "$BIN" ]]; then
+  echo "Release binary not found at:"
+  echo "  $BIN"
+  echo
+  echo "Build it first:"
+  echo "  cd \"$ROOT\" && npm run tauri build"
+  exit 1
+fi
+
+exec "$BIN" "$@"

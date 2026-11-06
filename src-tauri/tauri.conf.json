@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "DevMonitor",
+  "version": "0.1.0",
+  "identifier": "com.devmonitor.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "DevMonitor",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 600,
+        "resizable": true,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb"],
+    "category": "Utility",
+    "shortDescription": "Linux developer system monitor",
+    "longDescription": "DevMonitor watches CPU, memory, ports, and developer activity. After install it starts automatically on login so monitoring continues across restarts and power cycles.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "linux": {
+      "deb": {
+        "depends": [],
+        "desktopTemplate": "packaging/app.desktop",
+        "files": {
+          "/etc/xdg/autostart/DevMonitor.desktop": "packaging/autostart.desktop"
+        },
+        "postInstallScript": "packaging/postinst.sh",
+        "postRemoveScript": "packaging/postrm.sh"
+      }
+    }
+  }
+}
