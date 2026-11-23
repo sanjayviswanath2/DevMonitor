@@ -48,13 +48,18 @@ bash scripts/publish-snap.sh --all
 
 DevMonitor is a system monitor, so the snap uses **`confinement: classic`**.
 
-After registering the name, open:
+Classic desktop snaps must:
+- ship the GTK/WebKit runtime inside the snap (`stage-packages`)
+- enable Snapcraft ELF patching with `build-attributes: [enable-patchelf]`
+- keep the GitHub source public so store reviewers can inspect `snapcraft.yaml`
 
+Forum request thread:
+[https://forum.snapcraft.io/t/classic-confinement-for-devmonitor/54290](https://forum.snapcraft.io/t/classic-confinement-for-devmonitor/54290)
+
+Dashboard:
 [https://dashboard.snapcraft.io/snaps/devmonitor/](https://dashboard.snapcraft.io/snaps/devmonitor/)
 
-and **request classic confinement**. Explain briefly that the app needs process/port/journal access like other developer system tools.
-
-Until approved, keep releases on **`edge`** (or `beta`). Stable releases of classic snaps are blocked without approval.
+Until classic is approved, keep releases on **`edge`** (or `beta`). Stable releases of classic snaps are blocked without approval.
 
 ## 5. Install from the store
 

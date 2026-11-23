@@ -169,11 +169,16 @@ IMPORTANT — classic confinement approval
 ----------------------------------------
 DevMonitor uses confinement: classic (required for system monitoring).
 
-After the name is registered, request classic confinement:
+Classic packaging notes:
+  - snapcraft.yaml enables build-attributes: [enable-patchelf]
+  - GTK/WebKit runtime is staged into the snap (not taken from host)
+  - Keep the GitHub repo public for store reviewers
 
+Forum request:
+  https://forum.snapcraft.io/t/classic-confinement-for-devmonitor/54290
+
+Dashboard:
   https://dashboard.snapcraft.io/snaps/${NAME}/
-
-  → "Request classic confinement" / Settings
 
 Until approved, upload to the edge channel only, or publishing to stable
 may be held by automated review.
