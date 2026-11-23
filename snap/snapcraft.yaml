@@ -103,16 +103,23 @@ parts:
       - libgstreamer1.0-0
       - libgstreamer-plugins-base1.0-0
       - libgstreamer-gl1.0-0
+
+  # Keep loader-cache generation in a separate part. Using override-prime on the
+  # main classic part disables Snapcraft's enable-patchelf tracking.
+  desktop-loaders:
+    after: [devmonitor]
+    plugin: nil
     override-prime: |
       craftctl default
-      # Refresh pixbuf loader cache inside the snap so icons/images resolve.
-      if [ -x "$CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders" ]; then
-        "$CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders" \
-          > "$CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/2.10.0/loaders.cache" || true
+      ARCH="$CRAFT_ARCH_TRIPLET_BUILD_FOR"
+      LOADER_DIR="$CRAFT_PRIME/usr/lib/$ARCH/gdk-pixbuf-2.0/2.10.0/loaders"
+      CACHE="$CRAFT_PRIME/usr/lib/$ARCH/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+      QUERY="$CRAFT_PRIME/usr/lib/$ARCH/gdk-pixbuf-2.0/gdk-pixbuf-query-loaders"
+      mkdir -p "$(dirname "$CACHE")"
+      if [ -x "$QUERY" ]; then
+        "$QUERY" > "$CACHE" || true
       elif command -v gdk-pixbuf-query-loaders >/dev/null 2>&1; then
-        GDK_PIXBUF_MODULEDIR="$CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/2.10.0/loaders" \
-          gdk-pixbuf-query-loaders \
-          > "$CRAFT_PRIME/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/gdk-pixbuf-2.0/2.10.0/loaders.cache" || true
+        GDK_PIXBUF_MODULEDIR="$LOADER_DIR" gdk-pixbuf-query-loaders > "$CACHE" || true
       fi
 
 layout:
